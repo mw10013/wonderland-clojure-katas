@@ -5,8 +5,15 @@
         s2 (set (str n2))]
     (= s1 s2)))
 
+(defn same-digits? [n & ns]
+  (apply = (map (comp set str) (cons n ns))))
+
 ; (same-digits? 35 35)
+; (same-digits? 35 35 35)
+; (same-digits? 33 35 35)
 ; (same-digits? 33 35)
+; (same-digits? 35)
+; (same-digits?)
         
 
 (defn wonder? [n]
