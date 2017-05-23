@@ -29,7 +29,7 @@
     (reduce + (map last square))
     (+ (first r1) (second r2) (last r3))
     (+ (last r1) (second r2) (first r3))
-    (map (partial reduce +) square)
+    (map (partial reduce +) square)))
 
 
 (defn magic-square [values]
@@ -38,3 +38,5 @@
     squares
     (filter magic?)
     first))
+
+; (magic-square values)
