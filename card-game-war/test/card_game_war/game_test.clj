@@ -20,5 +20,6 @@
   (is (= :player1 (play-round [:ace :heart] [:ace :diamond]))))
 
 (deftest test-play-game
-  (testing "the player loses when they run out of cards"))
+  (testing "the player loses when they run out of cards"
+    (is (= :player2 (play-game [[6 :spade] [5 :spade]] [[7 :spade]])))))
 
