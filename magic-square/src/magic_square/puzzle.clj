@@ -1,7 +1,6 @@
 (ns magic-square.puzzle)
 
 (def values [1.0 1.5 2.0 2.5 3.0 3.5 4.0 4.5 5.0])
-; (def values [1.0 1.5 2.0])
 
 (defn squares [values]
   (for [x1 values
@@ -11,16 +10,14 @@
         y1 values
         y2 values
         y3 values
-        :when (= (count (hash-set x1 x2 x3 y1 y2 y3)) 6)
+        :when (and
+                (= (count (hash-set x1 x2 x3 y1 y2 y3)) 6)
+                (= (+ x1 x2 x3) (+ y1 y2 y3)))
         z1 values
         z2 values
         z3 values
         :when (= (count values) (count (hash-set x1 x2 x3 y1 y2 y3 z1 z2 z3)))]
     [[x1 x2 x3] [y1 y2 y3] [z1 z2 z3]]))
-
-; (take 2 (squares values))
-; (take 5 (squares values))
-; (take 25 (squares values))
 
 (defn magic? [[r1 r2 r3 :as square]]
   (apply =
@@ -40,3 +37,8 @@
     first))
 
 ; (magic-square values)
+; (count (magic-square values))
+; (take 2 (squares values))
+; (take 5 (squares values))
+; (take 25 (squares values))
+
